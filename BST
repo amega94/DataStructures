@@ -49,6 +49,19 @@ class BST:
         self.printPostOrder(node.left)
         self.printPostOrder(node.right)
         print(node.value)
+    def printLevelOrder(self):
+        _list = []
+        _list.append(self.root)
+        
+        while _list : # Python allows dynamic typing which means empty sequences evaluate to False and non-empty evalue to True.
+            for i in range(len(_list)):
+                print(_list[i].value, end = ' ')
+                if _list[i].left is not None:
+                    _list.append(_list[i].left)
+                if _list[i].right is not None:
+                    _list.append(_list[i].right)
+            _list = _list[i+1:]
+            print()
         
 
 _lista = [10, 9, 11, 15, 16]
