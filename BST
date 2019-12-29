@@ -1,0 +1,28 @@
+class Node:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+class BST:
+    def __init__(self, root=None):
+        self.root = root
+    def insert (self, node):
+        if root is None:
+            self.root = node
+            return
+            
+        current = root
+        parent = None
+        while current is not None:
+            parent = current
+            if current.value < node.val:
+                current = current.right
+           else:
+               current = current.left
+        
+        if parent.val < node.val:
+            parent.right = node
+        else:
+            parent.left = node
+        
