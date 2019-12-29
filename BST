@@ -8,6 +8,7 @@ class BST:
     def __init__(self, root=None):
         self.root = root
     def insert (self, node):
+    
         #Case 0 : Empty BST 
         if self.root is None:
             self.root = node
@@ -23,8 +24,8 @@ class BST:
             else:
                current = current.left
                
-        #After we have determined the location that we can insert by breaking out of the while loop
-        #We need to take a step back and revaluted the loc: right or left
+        #We have determined the location of insertion after breaking out of the while loop (after hitting the NULL)
+        #We need to take a step back from the parent's prespective
         if parent.value < node.value:
             parent.right = node
         else:
