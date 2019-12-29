@@ -8,21 +8,61 @@ class BST:
     def __init__(self, root=None):
         self.root = root
     def insert (self, node):
-        if root is None:
+        #Case 0 : Empty BST 
+        if self.root is None:
             self.root = node
             return
-            
-        current = root
+        
+        #Case 1: Non-Empty BST
+        current = self.root
         parent = None
         while current is not None:
             parent = current
-            if current.value < node.val:
+            if current.value < node.value:
                 current = current.right
-           else:
+            else:
                current = current.left
-        
-        if parent.val < node.val:
+               
+        #After we have determined the location that we can insert by breaking out of the while loop
+        #We need to take a step back and revaluted the loc: right or left
+        if parent.value < node.value:
             parent.right = node
         else:
             parent.left = node
+
+    def printInOrder (self, node):
+        if node is  None:
+            return
+        self.printInOrder(node.left)
+        print(node.value)
+        self.printInOrder(node.right)
+    def printPreOrder (self, node):
+        if node is  None:
+            return
+        print(node.value)
+        self.printPreOrder(node.left)
+        self.printPreOrder(node.right) 
+    def printPostOrder (self, node):
+        if node is  None:
+            return
+        self.printPostOrder(node.left)
+        self.printPostOrder(node.right)
+        print(node.value)
         
+
+_lista = [10, 9, 11, 15, 16]
+mybst = BST()
+
+for element in _lista:
+    mybst.insert(Node(element))
+
+mybst.printInOrder(mybst.root)
+    
+# def printer (root, i=0):
+#     if root.left is not None:
+#         printer(root.left,i+1)
+#     print(root.value, i)
+#     if root.right is not None:
+#         printer(root.right,i+1)
+        
+# printer(mybst.root)
