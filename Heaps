@@ -1,0 +1,49 @@
+# Max Heap: Parents >= Children
+# Min Heap: Parents <= Children
+
+#Max Heap --Condition--> Children are smaller than their parents. 
+#This means that a lower level can have a node with a higher val than an upper node (in Max Heap)
+
+#Removing an element is done from the top (i.e root node). 
+# 1. Remove top element (at the root)
+# 2. Bring the bottom right element to replace the root element
+# 3. Comparing parent with both children until condition is met!
+
+
+#Adding an element is done at the bottom right. 
+# 1. Comparing to parent until condition is met!
+
+''' Some useful functions for this data structure
+   17
+  /  \
+ 15   9
+/ \  / \
+1 12 3 8
+1) Getting the children values from the parent
+heap = [17, 15, 9, 1, 12, 3, 8] --> The heap is stored in a list with the following order
+Lchild(heap[i=0]) = 2*i + 1 = 2*0 + 1 = 1
+Rchild(heap[i=0]) = 2*i + 2 = 2*0 + 2 = =2
+The above two equations are used as we trickle down the top node (i.e. step 3 in Removing an element)
+
+2) Getting the parent value from the children
+We can rearrange the above two equations to get the parent's position from the child
+
+i (parent's position) = (Lchild - 1)/(2)
+i (parent's position) = (Rchild - 2)/(2)
+
+So the twist is that you have to know if you are a right or left child to use appropriate equation.
+
+This is actually not True. For example: What is the parent of a) node 3? b) node 8?
+
+a) We know that the parent of 3 is 9. However the code doesn't.
+
+
+'''
+class Node:
+    def __init__(self,val,right=None,left=None):
+        self.val = val
+        self.right = right
+        self.left  = left
+        
+    
+        
