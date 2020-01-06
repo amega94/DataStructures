@@ -2,7 +2,7 @@ class Graph:
     def __init__ (self):
         self.vertices = 0 #number of vertices initialized to zero
         self.edges = 0; #number of edges
-        self.adjacent = {} #this is a dict: key:str="Node name", val:list="list of adjacent nodes"
+        self.adjacent = {} #this is a dict: key:str="Node name", val:list="set of adjacent nodes --> to avoid duplicates"
     def addVertex (self, name):
         self.adjacent[name] = set()
         self.vertices += 1
