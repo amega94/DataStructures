@@ -37,13 +37,51 @@ This is actually not True. For example: What is the parent of a) node 3? b) node
 
 a) We know that the parent of 3 is 9. However the code doesn't.
 
+using i = (L-1)/(2)
+using i = (L-2)/(2)
 
+If we assume that 3 is left child of 9 --> i=(L-1)/(2)=(5-1)/(2)=2
+If we assume that 3 is right child of 9--> i=(R-2)/(2)=(5-2)/(2)=1.5
+
+Note that we can use R equation and round up and we don't need to know anything more.
+
+b) We know that the parent of 8 is 9. We also know that 8 is the right child of 9. The code doesn't.
+
+If we assume that 8 is left child of 9 --> i=(L-1)/(2)=(6-1)/(2)=2.5
+If we assume that 8 is left child of 9 --> i=(R-2)/(2)=(6-2)/(2)=2
+
+Note that we can use R equation and roud up or L equation and round down. Both strategies
+will give us the same results.
+
+
+
+Implementation of Max Heap
 '''
-class Node:
-    def __init__(self,val,right=None,left=None):
-        self.val = val
-        self.right = right
-        self.left  = left
+
+class Heap:
+    def __init__(self):
+        self._list = []
         
+    def append(self, val):
+        child = len(self._list)
+        self._list.append(val)
     
-        
+        parent = round((child-1)/2)
+        while ( (((child-1)/2) >= 0) & (self._list[child] > self._list[parent]) ):
+            #First condition makes sure that there is at least one element in the list
+            #If the list is empty, child = 0 --> p = (child-1)/2 = -0.5
+            #If the list has one element, child = 1 --> p = (1-1)/2 = 0
+            #The first condition is very important, since in Python round(-0.5) = -1 and list[-1] returns the last element in a list
+            self._list[child], self._list[parent] = self._list[parent], self._list[child]
+            child = parent
+            parent = round((child-1)/2)
+
+myheap = Heap()
+myheap.append(5)
+print(myheap._list)
+myheap.append(6)
+print(myheap._list)
+myheap.append(7)
+print(myheap._list)
+myheap.append(70)
+print(myheap._list)
