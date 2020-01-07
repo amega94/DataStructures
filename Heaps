@@ -48,7 +48,7 @@ Note that we can use R equation and round up and we don't need to know anything 
 b) We know that the parent of 8 is 9. We also know that 8 is the right child of 9. The code doesn't.
 
 If we assume that 8 is left child of 9 --> i=(L-1)/(2)=(6-1)/(2)=2.5
-If we assume that 8 is left child of 9 --> i=(R-2)/(2)=(6-2)/(2)=2
+If we assume that 8 is right child of 9 --> i=(R-2)/(2)=(6-2)/(2)=2
 
 Note that we can use R equation and roud up or L equation and round down. Both strategies
 will give us the same results.
@@ -75,6 +75,18 @@ class Heap:
             self._list[child], self._list[parent] = self._list[parent], self._list[child]
             child = parent
             parent = round((child-1)/2)
+    
+    def delete(self):
+        if ( len(_list) == 0 ):
+            print("Heap is Empty")
+        else:
+            self._list[0] = self._list[len(_list)-1]
+            self._list = self._list[:-1]
+            
+            //trickle down
+            if ()
+            
+            
 
 myheap = Heap()
 myheap.append(5)
@@ -85,3 +97,14 @@ myheap.append(7)
 print(myheap._list)
 myheap.append(70)
 print(myheap._list)
+            
+            
+    
+    
+    
+    
+    
+    
+    
+    
+        
