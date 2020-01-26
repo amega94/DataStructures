@@ -22,7 +22,7 @@ Tests printer(arr, start, len(arr)-1):
 3. arr = [1,2,3,4] -> print 1\n2\n3\n4\n. ✔
 
 
-This CONDITION start < end is used in "famous" sorting and its important to understand why this is the case.
+This CONDITION start < end is used in "famous" sorting algorithms and its important to understand why this is the case.
 
  
  
