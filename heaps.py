@@ -97,14 +97,3 @@ myheap.append(7)
 print(myheap._list)
 myheap.append(70)
 print(myheap._list)
-            
-            
-    
-    
-    
-    
-    
-    
-    
-    
-        
