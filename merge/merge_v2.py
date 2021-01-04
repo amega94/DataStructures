@@ -1,3 +1,5 @@
+### v2: MERGE BY VALUE 
+
 def merge(arr_1, arr_2):
     arr_1 = arr_1[:]
     arr_2 = arr_2[:]
