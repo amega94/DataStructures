@@ -6,6 +6,7 @@ def merge(arr_1, arr_2):
     
     new = []
     
+    # loop until one of the sublists is empty
     while (arr_1 and arr_2):
         if (arr_1[0] < arr_2[0]):
             new.append(arr_1[0])
