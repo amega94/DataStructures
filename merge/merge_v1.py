@@ -4,7 +4,7 @@ def merge(arr_1, arr_2):
     i = j = 0
     new = []
     
-    # 'try-catch' to supress exception raised in corner-case (i.e. when arr_1 or arr_2 is empty!)
+    # 'try-catch' to supress exception raised in corner-case: when arr_1 or arr_2 is empty! arr_x[i=0] will raise an out of bounds exception.
     try:
         if arr_1[i] > arr_2[j]:
             new.append(arr_2[j])
